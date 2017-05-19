@@ -21,7 +21,7 @@
 
 /* Version string: */
 
-#define VERSION             "2.39b"
+#define VERSION             "2.39v"
 
 /******************************************************
  *                                                    *
@@ -75,17 +75,16 @@
 
 /* Baseline number of random tweaks during a single 'havoc' stage: */
 
-#define HAVOC_CYCLES        256
-#define HAVOC_CYCLES_INIT   1024
+#define HAVOC_CYCLES        2048
 
 /* Maximum multiplier for the above (should be a power of two, beware
    of 32-bit int overflows): */
 
-#define HAVOC_MAX_MULT      16
+#define HAVOC_MAX_MULT      32
 
 /* Absolute minimum number of havoc cycles (after all adjustments): */
 
-#define HAVOC_MIN           16
+#define HAVOC_MIN           1024
 
 /* Maximum stacking for havoc-stage tweaks. The actual value is calculated
    like this: 
@@ -102,16 +101,16 @@
    ranges has a 33% probability of getting picked, except for the first
    two cycles where smaller blocks are favored: */
 
-#define HAVOC_BLK_SMALL     32
-#define HAVOC_BLK_MEDIUM    128
-#define HAVOC_BLK_LARGE     1500
+#define HAVOC_BLK_SMALL     4
+#define HAVOC_BLK_MEDIUM    16
+#define HAVOC_BLK_LARGE     128
 
 /* Probabilities of skipping non-favored entries in the queue, expressed as
    percentages: */
 
 #define SKIP_TO_NEW_PROB    99 /* ...when there are new, pending favorites */
 #define SKIP_NFAV_OLD_PROB  95 /* ...no new favs, cur entry already fuzzed */
-#define SKIP_NFAV_NEW_PROB  75 /* ...no new favs, cur entry not fuzzed yet */
+#define SKIP_NFAV_NEW_PROB   0 /* ...no new favs, cur entry not fuzzed yet */
 
 /* Splicing cycle count: */
 
@@ -123,7 +122,7 @@
 
 /* Maximum offset for integer addition / subtraction stages: */
 
-#define ARITH_MAX           35
+#define ARITH_MAX           15
 
 /* Limits for the test case trimmer. The absolute minimum chunk size; and
    the starting and ending divisors for chopping up the input file: */
@@ -134,7 +133,7 @@
 
 /* Maximum size of input file, in bytes (keep under 100MB): */
 
-#define MAX_FILE            (1 * 1024 * 1024)
+#define MAX_FILE            (4 * 1024)
 
 /* The same, for the test case minimizer: */
 
